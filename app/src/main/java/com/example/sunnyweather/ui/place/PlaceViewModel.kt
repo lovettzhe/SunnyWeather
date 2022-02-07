@@ -12,8 +12,8 @@ import com.example.sunnyweather.logic.model.Place
 class PlaceViewModel : ViewModel() {
     private val searchLiveData = MutableLiveData<String>()
     val placeList = ArrayList<Place>()
-    val placeLiveData = Transformations.switchMap(searchLiveData) { query ->
-        Repository.searchPlaces(query)
+    val placeLiveData = Transformations.switchMap(searchLiveData) {
+        Repository.searchPlaces(it)
     }
 
     fun searchPlaces(query: String) {
